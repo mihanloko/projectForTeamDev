@@ -3,4 +3,3 @@ test:
   database: servers
   username: root
   encoding: utf8
-  password: root
