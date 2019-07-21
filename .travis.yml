@@ -1,6 +1,6 @@
 language: java
 script:
-  - clean package
+  - mvn clean package
 
 #language: java
 #addons:
