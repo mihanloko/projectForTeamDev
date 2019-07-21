@@ -9,9 +9,6 @@ addons:
   apt:
     sources:
       - mysql-5.7-trusty
-    packages:
-      - mysql-server
-      - mysql-client
 
 before_install:
   - mysql -e 'CREATE DATABASE servers;'
@@ -20,7 +17,7 @@ before_install:
   - sudo service mysql restart
 
 script:
-  - mvn clean package org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=mihanloko_projectForTeamDev
+  - mvn clean package sonar:sonar -Dsonar.projectKey=mihanloko_projectForTeamDev
 
 
 #language: java
