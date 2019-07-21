@@ -2,10 +2,6 @@ language: java
 services:
   - mysql
 addons:
-  sonarcloud:
-    organization: "mihanloko"
-    token:
-      secure: "JlPYMU6hJjtG6y3skmZQqAxGA9nAaBmW3D/e1eORxezKc2M/q1a3LK/E7Tg4Uq/7mtCGzD2WxiXQNd2PBwH/uzVuDG6BzEp3A3fMicE8k/zS3h5JFNINET2R3wbkhNCTnC9utC2tDQXIR5yIc+nIfJM/EVNjxx0T9byYj+/jAcYR2oeKDeI/UPjmIl8ycc2G1BxOKL++//J58/7MdS7TkkopzPgf7jIyIJWh7UncVtv5cB3Orz4AAAgfJSRO5t8gAaF7VlRUCHMaz4RQs6Tg0UNBM+TL5VYgKIRM52XtnPk6n3QrF1wBx4+7r4DPBTNAvJzBQ3I41VmA7U7drBSI8sL3rPjafQtX902X+LdjqOWKrkjZTCLdazq2cGk+Qs4XUHj5H1nnrzxI7hTbJh5WveF7h5swFoc+zNlNi0jQXl4pSbgYImFkml7epMWQhC+XD4c3drTgAhjKCcVX+epvR92nOp1irz2My1hnxRUqaRltpvXs9iEqo+GQdUerVL607EplkA3/cRXxEyWFhHu+20U5KTsnn5drUFiNEwFfoKnraSIaJPXgy/TF8Nw9CPQ6p2+NFWZZ+N5a6HTg2K2BZfjDx2emTcK0q6YYQ5ELloGSxj7rNUY78gKRptZ4IlKXCl44MqeoG0Y/8Wu838nCyKrwqOwn4QtTSta676oOuaw="
   apt:
     sources:
       - mysql-5.7-trusty
@@ -20,8 +16,7 @@ before_install:
   - sudo service mysql restart
 
 script:
-  - mvn clean package org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=mihanloko_projectForTeamDev
-
+  - mvn clean package
 
 #language: java
 #addons:
