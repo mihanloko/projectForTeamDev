@@ -1,5 +1,7 @@
 services:
   - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE servers;'
 language: java
 script:
   - mvn clean package
