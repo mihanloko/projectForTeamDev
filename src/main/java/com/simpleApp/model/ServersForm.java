@@ -1,27 +1,11 @@
 package com.simpleApp.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-import javax.persistence.*;
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "server_table")
-public class Servers {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ServersForm {
     private Long id;
-
-    @Column(name = "name_server")
     private String nameServer;
-
-    @Column(name = "id_application")
     private BigDecimal idApplication;
-
-    @Column(name = "description")
     private String description;
 
     public Long getId() {
@@ -56,8 +40,4 @@ public class Servers {
         this.nameServer = nameServer;
     }
 
-    @Override
-    public String toString() {
-        return "Servers [nameServer=" + nameServer + ", idApplication=" + idApplication + ", description=" + description + "]";
-    }
 }
