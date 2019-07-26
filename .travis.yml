@@ -12,6 +12,7 @@ deploy:
   app: test-app-loko
   api_key:
     secure: WX6rayFHa65O0OJnd9uQTKT6Oq5cugR54JBJ2ZDLXPGtRpbjRYNUKYLLUTfHVj/dQAO/0SR23HhyjVJCEKsyNb5GTkd6hxoDgkoRVmTblnvmtOrUquhKkqaWHyIZqqMMghKBUwgxfvcsNAfsBduaQ06chUXCrXNy40dRjGEx7zZJ2P/S3gTZLMlacA6U0YJolkl40UEcWOTAye9C3E7bWk2pHGKvalN+0lyAoQKPsJyj/sNJhKd933gL52nlwgRqYGZTWqKfA9CK1w5wpgYGIJ9WcLG7htLizWoMfjzlt4cENlri/jhEfMMDuoPqnUgkeJ2vIJDFgbHRG8c9Zg4VLiVucYkIx3H12Yv+XuPTUbQrSqvEsCMQ6YGTa3guxZKiQrM9/hXWP8UnmSu9AzNER8PpfY4y86Q3MXw+YSNRrmXRdJrWvsN8e96hBH2JEgCbhdtetnfuUMj6asfOSznWns+/2/nzVpqma3dvDFUVRo4XQVoYSgy4VeIRSFIs294pynRgafCYFNzSSfp3TZudi36WizLE9Kb6/iZs177ow9ddVbOHfMtpEKTvZkLUANn6kAj6c4FPp1TVH+3g5x92W6u17jt6NuddXFHTeJswGgHiwGsS+L8wZxuoO/ulA0VaM+0isZkQ6hGYCqMU7e/yBgQ24D6HBGonKmV4Z780Psk=
-  on: branch-heroku
+  on:
+    branch: branch-heroku
   run:
   - mvn clean package
