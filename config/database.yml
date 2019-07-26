@@ -1,5 +1,5 @@
 test:
-  adapter: mysql2
+  adapter: postgres
   database: servers
-  username: root
+  username: postgres
   encoding: utf8

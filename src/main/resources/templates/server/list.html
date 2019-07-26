@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Webpage encoding -->
+    <meta charset="utf-8"/>
+    <!-- Installation viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <title>SERVERS</title>
+    <!-- Connected Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(servers)}">
+        <h2>Product List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>ID App</th>
+                <th>Name Server</th>
+                <th>List</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="server : ${servers}">
+                <td th:text="${server.id}"></td>
+                <td th:text="${server.description}"></td>
+                <td th:text="${server.idApplication}"></td>
+                <td th:text="${server.nameServer}"></td>
+                <td><a th:href="${'/server/show/' + server.id}">View</a> </td>
+                <td><a th:href="${'/server/edit/' + server.id}">Edit</a> </td>
+                <td><a th:href="${'/server/delete/' + server.id}">Delete</a> </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <a href="/server/new">New Server</a>
+        </div>
+    </div>
+</div>
+
+<!-- Connected jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Connected plugin Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<!-- Connected Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" ></script>
+</body>
+</html>
