@@ -7,3 +7,11 @@ addons:
 
 script:
   - mvn clean package package org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=mihanloko_projectForTeamDev
+
+deploy:
+  provider: heroku
+  app: test-app-loko
+  api_key:
+    secure: A6jkCxvVxNBt6mIaljaeS8pqAg72b7Qoy5wy6xZ8YRIa6Qw4BnmwLNyYB+CdoTc7prO8g8c+tHvZLDcmLX40mY4/B0WCAYi9C2gaXdyYYSOzVzn+Pa3FSc2WGeB6WynffBu7MTP7IltFp12zIYhYPzpZSYLO65voAq071qk0eR1vtEebvg4eES92aJOquXxe0aOqM0Npxf3LBsoUJDLtOuiI1ZlINudljPewqGllwEIwyi3yYr7NidoTmLs8oPGyiHetOnU61mRa8xOWXpOwBFzjLHOsGlKj5PXo3WFHSvx5kB6t9jpjEngdc8MhM1OEIPnbmDqYrwEr3PAw4w5UJ7RhZqQeG09RKKHJTNyglKDrCMGlPgdRsZ++Bq4LSHONcGIk3r+pHllZnGTJM2a7HdnEQqyVP/bav6ebQW1fe3fwA4kn80Pag8gMDVHj89VRH33voiYncHntCPCQqhvLthQWcVvSqSZdzIrUqExXXIfymtGgBwKTiw5LfztlSLVv+4jxRMjMTJ/mopqcp5gS17svk0CROOFXWguBx2vEXv9IZ7blijFgysKen66foQ2ZJaeH3EyoEUy4EEX1jrobWDwgJaUUjABTwGYLA8G5PwBZzuY5ZTgieoc3QDzimguLEh6/puv47ZCit9mAjZVA2o3mc9Liwr1HCxtXM0CYDKU=
+  run:
+    - "mvn clean package"
