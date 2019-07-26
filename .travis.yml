@@ -13,6 +13,6 @@ deploy:
   api_key:
     secure: H0CHW8zlRDE2JS0437W01M2nWKfioEjGCsUIj/iSyrqMVk/u7ozL57Oy8g+h1eHVWT3uC2CNSHoIxUc0LufXlyPbGxvQbdTvI+mSL74+hghJUYWlB/7ZZuRIzMBw9Bu/V8FTHLGe5nj4cKDv5bH+/DYaSOt7F/pDqf/RX3Hx5ky2lBkCu1K2cm0a2i57vVK9Yl5F/2nTEHGX2f5u5o0UbjieIyZSKc6EMTQ9ZpUof4MOpdPAKONK8nuczlSD7N7YiSG3Er+zQkwaNOXYYLun0e72QWgCDPbrW2OszSe7Mt9Fupj2AXLoMuNqEPyqSEeoZRMnqwutgcGUlL9cfnu64Y/stk4QkKIoWNF6aup8Rmiv8l9jp7XS55D56IbLFekh41pdmGhlf5vE14itfhWH50HEgYQbV+KgAMh7S6MIkfKU77oHg5HsfPL+jiuKu4uNIaH84AsaB/2hz7TVjnjFYfV19YYcJ6dw1ZCrPa63fsYncA+MEPqPAMnMNAsmc/9m63dj/EYgoF0jsMdhNEs6Nt/GhObbNJo9p/rwTf53BO4WLcpDZjGO0vZ0fnmIXP8PiSck/OWjM4RLjnQnX7H3VwwM6NaCbZ8qQ8rVTRvuZUwLHftRNbYN1SNwNVgJ78hV2iMRBA+G496WgnbL+bf7MeqOcn6CyU3XMIc1B84K5ms=
   on:
-    branch: dev-a
+    branch: branch-heroku
   run:
   - mvn clean package
