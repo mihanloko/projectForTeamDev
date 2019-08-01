@@ -28,19 +28,16 @@ public class ApplicationRepositoryTest {
     @Test
     public void applicationsTest() {
         // Given information table Application
-        Applications applications = new Applications();
-        applications.setNameApplication(NAME_APPLICATION);
-        applications.setPreviousApplication(PREV_APPLICATION);
-        applications.setNextApplication(NEXT_APPLICATION);
+        Applications applications = applicationRepository.findAll().get(1);
 
         // Save information table
-        applicationRepository.save(applications);
+//        applicationRepository.save(applications);
 
         // Compare
         Assert.assertNotNull(applications.getId());
         //Applications newApplications = applicationRepository.findOne(applications.getId());
         Applications newApplications = applicationRepository.findById(applications.getId()).orElse(null);
-        Assert.assertEquals((Long) 6L, newApplications.getId());
+        Assert.assertEquals((Long) 2L, newApplications.getId());
         Assert.assertEquals(NAME_APPLICATION, newApplications.getNameApplication());
         Assert.assertEquals(PREV_APPLICATION, newApplications.getPreviousApplication());
         Assert.assertEquals(NEXT_APPLICATION, newApplications.getNextApplication());
