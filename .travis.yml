@@ -1,8 +1,4 @@
 language: java
-services:
-  - postgresql
-before_script:
-  - psql -c 'create database servers;' -U postgres
 addons:
   sonarcloud:
     organization: mihanloko
@@ -16,6 +12,10 @@ addons:
 env:
     global:
       - PGPORT=5433
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database servers;' -U postgres
 script:
 - mvn clean package org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
   -Dsonar.projectKey=mihanloko_projectForTeamDev
