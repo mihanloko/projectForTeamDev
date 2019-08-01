@@ -14,9 +14,9 @@
 <body>
 <div class="container">
 
-    <h2>Server Details</h2>
+    <h2>Application Details</h2>
     <div>
-        <form class="form-horizontal" th:object="${serverForm}" th:action="@{/server}" method="post">
+        <form class="form-horizontal" th:object="${applicationForm}" th:action="@{/appl}" method="post">
 
             <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
                 <p th:text="#{form.hasErrors}">Error Message</p>
@@ -24,40 +24,40 @@
 
             <input type="hidden" th:field="*{id}"/>
 
-            <div class="form-group" th:class="${#fields.hasErrors('description')} ? 'form-group has-error' : 'form-group'">
-                <label class="col-sm-2 control-label">Description:</label>
+            <div class="form-group" th:class="${#fields.hasErrors('nameApplication')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Name Application:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{description}" th:errorclass="has-error"/>
+                    <input type="text" class="form-control" th:field="*{nameApplication}" th:errorclass="has-error"/>
 
                     <span class="help-block">
                        <ul>
-                           <li th:each="err : ${#fields.errors('description')}" th:text="${err}" />
+                           <li th:each="err : ${#fields.errors('nameApplication')}" th:text="${err}" />
                        </ul>
                     </span>
                 </div>
             </div>
 
-            <div class="form-group" th:class="${#fields.hasErrors('idApplication')} ? 'form-group has-error' : 'form-group'">
-                <label class="col-sm-2 control-label">idApplication:</label>
+            <div class="form-group" th:class="${#fields.hasErrors('previousApplication')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Previous Application:</label>
                 <div class="col-sm-10">
-                    <input type="number" min="0" max="5000" step="0.01" class="form-control" th:field="*{idApplication}" th:errorclass="has-error"/>
+                    <input type="text" class="form-control" th:field="*{previousApplication}" th:errorclass="has-error"/>
 
                     <span class="help-block">
                        <ul>
-                           <li th:each="err : ${#fields.errors('idApplication')}" th:text="${err}" />
+                           <li th:each="err : ${#fields.errors('previousApplication')}" th:text="${err}" />
                        </ul>
                     </span>
                 </div>
             </div>
 
-            <div class="form-group" th:class="${#fields.hasErrors('nameServer')} ? 'form-group has-error' : 'form-group'">
-                <label class="col-sm-2 control-label">Name Server:</label>
+            <div class="form-group" th:class="${#fields.hasErrors('nextApplication')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Next Application:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{nameServer}" th:errorclass="has-error"/>
+                    <input type="text" class="form-control" th:field="*{nextApplication}" th:errorclass="has-error"/>
 
                     <span class="help-block">
                        <ul>
-                           <li th:each="err : ${#fields.errors('nameServer')}" th:text="${err}" />
+                           <li th:each="err : ${#fields.errors('nextApplication')}" th:text="${err}" />
                        </ul>
                     </span>
                 </div>

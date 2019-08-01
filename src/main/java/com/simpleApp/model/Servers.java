@@ -1,5 +1,8 @@
 package com.simpleApp.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -14,8 +17,10 @@ public class Servers {
     @Column(name = "name_server")
     private String nameServer;
 
-    @Column(name = "id_application")
-    private BigDecimal idApplication;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "id_application", nullable = false)
+    private Applications idApplication;
 
     @Column(name = "description")
     private String description;
@@ -36,11 +41,11 @@ public class Servers {
         this.description = description;
     }
 
-    public BigDecimal getIdApplication() {
+    public Applications getIdApplication() {
         return idApplication;
     }
 
-    public void setIdApplication(BigDecimal idApplication) {
+    public void setIdApplication(Applications idApplication) {
         this.idApplication = idApplication;
     }
 

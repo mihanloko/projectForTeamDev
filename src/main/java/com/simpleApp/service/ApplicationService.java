@@ -1,12 +1,16 @@
 package com.simpleApp.service;
 
 import com.simpleApp.model.Applications;
+import com.simpleApp.model.ApplicationsForm;
+
 import java.util.List;
 
 public interface ApplicationService {
     Applications getById(Long id);
 
-    void save(Applications applications);
+    Applications saveOrUpdate(Applications applications);
+
+    Applications saveOrUpdateApplicationForm(ApplicationsForm applicationsForm);
 
     void delete(Long id);
 

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class ServersForm {
     private Long id;
     private String nameServer;
-    private BigDecimal idApplication;
+    private Applications idApplication;
     private String description;
 
     public Long getId() {
@@ -24,11 +24,11 @@ public class ServersForm {
         this.description = description;
     }
 
-    public BigDecimal getIdApplication() {
+    public Applications getIdApplication() {
         return idApplication;
     }
 
-    public void setIdApplication(BigDecimal idApplication) {
+    public void setIdApplication(Applications idApplication) {
         this.idApplication = idApplication;
     }
 

@@ -28,7 +28,8 @@ public class ServerServiceImp implements ServerService  {
     @Override
     public Servers getById(Long id) {
         logger.info("IN ServersServiceImpl getById {}", id);
-        return serverRepository.findOne(id);
+        //return serverRepository.findOne(id);
+        return serverRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -48,7 +49,8 @@ public class ServerServiceImp implements ServerService  {
     @Override
     public void delete(Long id) {
         logger.info("IN ServersServiceImpl delete {}", id);
-        serverRepository.delete(id);
+        //serverRepository.delete(id);
+        serverRepository.deleteById(id);
     }
 
     @Override

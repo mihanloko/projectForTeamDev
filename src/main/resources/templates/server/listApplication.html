@@ -6,13 +6,11 @@
     <!-- Installation viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <title>APPLICATION INFORMATION</title>
+    <title>APPLICATIONS</title>
     <!-- Connected Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-
 </head>
 <body>
-
 <div class="container">
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
@@ -41,11 +39,30 @@
         </nav>
     </div>
 
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic">Documentations</h1>
-            <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
-            <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+    <div th:if="${not #lists.isEmpty(app)}">
+        <h2>APPLICATIONS</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name Application</th>
+                <th>Previous Application</th>
+                <th>Next Application</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="apps : ${app}">
+                <td th:text="${apps.id}"></td>
+                <td th:text="${apps.nameApplication}"></td>
+                <td th:text="${apps.previousApplication}"></td>
+                <td th:text="${apps.nextApplication}"></td>
+                <td><a th:href="${'/server/editApplication/' + apps.id}">Edit</a> </td>
+                <td><a th:href="${'/server/deleteApplication/' + apps.id}">Delete</a> </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <a href="/server/newApplication">New Application</a>
         </div>
     </div>
 </div>
@@ -58,6 +75,5 @@
 
 <!-- Connected Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" ></script>
-
 </body>
 </html>

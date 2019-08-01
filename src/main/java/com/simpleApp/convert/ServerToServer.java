@@ -11,9 +11,9 @@ public class ServerToServer implements Converter<Servers, ServersForm> {
     public ServersForm convert(Servers servers) {
         ServersForm serversForm = new ServersForm();
         serversForm.setId(servers.getId());
-        serversForm.setDescription(servers.getDescription());
-        serversForm.setIdApplication(servers.getIdApplication());
         serversForm.setNameServer(servers.getNameServer());
+        serversForm.setIdApplication(servers.getIdApplication());
+        serversForm.setDescription(servers.getDescription());
         return serversForm;
     }
 }
