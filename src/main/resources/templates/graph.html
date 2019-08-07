@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
 <style>
 
     .node circle {
@@ -24,7 +23,8 @@
 <body>
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
-
+    // var json_obg_get = "[[${json_obj}]]";
+    // json_obg_get = json_obg_get.replace(/&quot;/g,'"');
     var width = 960,
         height = 500,
         root;
@@ -43,12 +43,17 @@
     var link = svg.selectAll(".link"),
         node = svg.selectAll(".node");
 
-    d3.json("graph.json", function(error, json) {
-        if (error) throw error;
+    // d3.json("graph.json", function(error, json) {
+    //     if (error) throw error;
+    //     console.log(json);
+    //     console.log(JSON.parse(json_obg_get));
+    //     root = json;
+    //     update();
+    // });
 
-        root = json;
-        update();
-    });
+    root = JSON.parse("[[${json_obj}]]".replace(/&quot;/g,'"'));
+    console.log(root);
+    update();
 
     function update() {
         var nodes = flatten(root),
