@@ -64,6 +64,12 @@ public class ServersRest {
         return "server/show";
     }
 
+    @RequestMapping("/graph")
+    public String getGraph(Model model){
+        model.addAttribute("servers", serverService.getAll());
+        return "/graph";
+    }
+
     @RequestMapping("server/edit/{id}")
     public String edit(@PathVariable String id, Model model){
         Servers servers = serverService.getById(Long.valueOf(id));
