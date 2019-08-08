@@ -105,9 +105,7 @@ public class ServersRest {
 //        System.out.println(jsonString);
         OrderBuilder builder = new OrderBuilder(applicationService);
         LinkedList<Long> list = new LinkedList<>();
-        list.add(7L);
-        list.add(3L);
-        list.add(4L);
+        list.add(1L);
         model.addAttribute("json_obj", builder.getOrder(list));
         return "/graph";
     }
