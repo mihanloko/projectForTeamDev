@@ -109,7 +109,7 @@ public class ServersRest {
 //        list.add(3L);
 //        list.add(4L);
 //        model.addAttribute("json_obj", builder.getOrder(list));
-        return "/server/graph";
+        return "server/graph";
     }
 
     @RequestMapping("server/edit/{id}")
