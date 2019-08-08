@@ -1,5 +1,6 @@
 package com.simpleApp.controller;
 
+import com.google.gson.Gson;
 import com.simpleApp.convert.ApplicationToApplication;
 import com.simpleApp.convert.ServerToServer;
 import com.simpleApp.model.ApplicationsForm;
@@ -14,7 +15,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 @Controller
 public class ServersRest {
@@ -66,7 +75,44 @@ public class ServersRest {
 
     @RequestMapping("/graph")
     public String getGraph(Model model){
-        model.addAttribute("servers", serverService.getAll());
+
+//        Gson gson = new Gson();
+//
+//        HashMap<String, Object> map = new HashMap<>();
+//        map.put("name", "GRAPH");
+//        HashMap<String, Object> child = new HashMap<>();
+//        child.put("name", "child");
+//        child.put("size", 5000);
+//        ArrayList<HashMap<String, Object>> list = new ArrayList<>();
+//        list.add(child);
+//        map.put("children", list);
+////        map.put("size", 2000);
+//
+//        String json = gson.toJson(applicationService.getById(1L));
+//        //System.out.println(json);
+//
+//        json = gson.toJson(map);
+//        System.out.println(json);
+//        model.addAttribute("json_obj", json);
+
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("name", "App1");
+//        jsonObject.put("size", 5000);
+//        JSONArray jsonArray = new JSONArray();
+//        jsonArray.put(jsonObject);
+//        jsonArray.put(jsonObject);
+//        jsonArray.put(jsonObject);
+//
+//        String jsonString = new JSONObject()
+//                .put("name", "Server1")
+//                .put("children", jsonArray).toString();
+//
+//        model.addAttribute("json_obj", jsonString);
+//        System.out.println(jsonString);
+        OrderBuilder builder = new OrderBuilder(applicationService);
+        LinkedList<Long> list = new LinkedList<>();
+        list.add(1L);
+        model.addAttribute("json_obj", builder.getOrder(list));
         return "/graph";
     }
 
