@@ -1,11 +1,10 @@
 package com.simpleApp.controller;
 
-import com.google.gson.Gson;
 import com.simpleApp.convert.ApplicationToApplication;
 import com.simpleApp.convert.ServerToServer;
+import com.simpleApp.model.Applications;
 import com.simpleApp.model.ApplicationsForm;
 import com.simpleApp.model.Servers;
-import com.simpleApp.model.Applications;
 import com.simpleApp.model.ServersForm;
 import com.simpleApp.service.ApplicationService;
 import com.simpleApp.service.ServerService;
@@ -13,17 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 
 @Controller
 public class ServersRest {

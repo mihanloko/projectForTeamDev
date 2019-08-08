@@ -3,7 +3,6 @@ import com.simpleApp.model.Applications;
 import com.simpleApp.service.ApplicationService;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.*;
