@@ -1,5 +1,4 @@
 package com.simpleApp.controller;
-
 import com.simpleApp.model.Applications;
 import com.simpleApp.service.ApplicationService;
 
