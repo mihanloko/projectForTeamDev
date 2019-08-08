@@ -4,9 +4,10 @@ import com.simpleApp.service.ApplicationService;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
-
+@Component
 public class OrderBuilder {
     private ApplicationService applicationService;
     private int orderNumber;
