@@ -6,18 +6,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.TreeSet;
+import java.util.*;
 
 public class OrderBuilder {
     private ApplicationService applicationService;
     private int orderNumber;
+    HashMap<Long, JSONObject> usedApps;
 
     public OrderBuilder(ApplicationService applicationService) {
         this.applicationService = applicationService;
         orderNumber = 1;
+        usedApps = new HashMap<>();
     }
 
     private JSONObject appToObject(Applications application) {
@@ -33,7 +32,15 @@ public class OrderBuilder {
 
             for (String prevId : prevApps) {
                 Applications prevApp = applicationService.getById(Long.valueOf(prevId));
-                prevAppsArray.put(appToObject(prevApp));
+
+                if (usedApps.get(prevApp.getId()) == null) {
+                    JSONObject currentApp = appToObject(prevApp);
+                    prevAppsArray.put(currentApp);
+                    usedApps.put(prevApp.getId(), currentApp);
+                }
+                else {
+                    prevAppsArray.put(usedApps.get(prevApp.getId()));
+                }
             }
 
             app.put("children", prevAppsArray);
@@ -51,10 +58,13 @@ public class OrderBuilder {
         JSONObject order = new JSONObject();
 
         for (Applications app : queue) {
-            order = appToObject(app);
+            if (usedApps.get(app.getId()) == null) {
+                order = appToObject(app);
+                usedApps.put(app.getId(), order);
+            }
         }
 
-        return order.toString();//todo return
+        return order.toString();
 
     }
 
