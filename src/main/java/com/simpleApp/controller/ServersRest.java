@@ -103,12 +103,12 @@ public class ServersRest {
 //
 //        model.addAttribute("json_obj", jsonString);
 //        System.out.println(jsonString);
-        OrderBuilder builder = new OrderBuilder(applicationService);
-        LinkedList<Long> list = new LinkedList<>();
-        list.add(7L);
-        list.add(3L);
-        list.add(4L);
-        model.addAttribute("json_obj", builder.getOrder(list));
+//        OrderBuilder builder = new OrderBuilder(applicationService);
+//        LinkedList<Long> list = new LinkedList<>();
+//        list.add(7L);
+//        list.add(3L);
+//        list.add(4L);
+//        model.addAttribute("json_obj", builder.getOrder(list));
         return "/server/graph";
     }
 
